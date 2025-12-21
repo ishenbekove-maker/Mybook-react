@@ -14,17 +14,17 @@ export default function Login() {
     setError('');
     try {
       await login(email, password);
-      navigate('/profile');
+      navigate('/');
     } catch (err) {
       setError(err.message || 'Неверный email или пароль');
     }
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-page">
       <div className="auth-card">
-        <h1>Вход в аккаунт</h1>
-        <p className="auth-subtitle">Добро пожаловать обратно!</p>
+        <h1 className="auth-title">Вход в аккаунт</h1>
+        <p className="auth-subtitle">Рады видеть вас снова!</p>
 
         {error && <div className="error-message">{error}</div>}
 
@@ -35,8 +35,8 @@ export default function Login() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Введите email"
               required
-              placeholder="Введите ваш email"
             />
           </div>
 
@@ -46,12 +46,12 @@ export default function Login() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
               placeholder="Введите пароль"
+              required
             />
           </div>
 
-          <button type="submit" className="auth-btn primary">
+          <button type="submit" className="auth-btn">
             Войти
           </button>
         </form>

@@ -12,6 +12,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import './App.css';
+import CrudBooks from './pages/CrudBooks';  
 
 function App() {
   const [basket, setBasket] = useState([]);
@@ -58,6 +59,7 @@ function App() {
           <Header basketCount={basket.reduce((sum, item) => sum + item.quantity, 0)} />
           <main>
             <Routes>
+              <Route path="/crud" element={<CrudBooks />} />
               <Route path="/" element={<Home />} />
               <Route path="/books" element={<BookList addToBasket={addToBasket} />} />
               <Route path="/book/:id" element={<BookDetail />} />

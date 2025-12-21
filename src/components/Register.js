@@ -34,34 +34,34 @@ export default function Register() {
 
     try {
       await register(form);
-      navigate('/profile');
+      navigate('/');
     } catch (err) {
-      setError(err.message || 'Ошибка при регистрации');
+      setError(err.message || 'Ошибка регистрации');
     }
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-page">
       <div className="auth-card">
-        <h1>Регистрация</h1>
-        <p className="auth-subtitle">Создайте аккаунт и начните покупать книги!</p>
+        <h1 className="auth-title">Регистрация</h1>
+        <p className="auth-subtitle">Присоединяйтесь к BooksApp!</p>
 
         {error && <div className="error-message">{error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="input-group">
             <label>ФИО</label>
-            <input name="fullName" value={form.fullName} onChange={handleChange} required placeholder="ФИО" />
+            <input name="fullName" value={form.fullName} onChange={handleChange} placeholder="ФИО" required />
           </div>
 
           <div className="input-group">
             <label>Email</label>
-            <input type="email" name="email" value={form.email} onChange={handleChange} required placeholder="example@mail.com" />
+            <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="example@mail.com" required />
           </div>
 
           <div className="input-group">
             <label>Пароль</label>
-            <input type="password" name="password" value={form.password} onChange={handleChange} required minLength="6" placeholder="Минимум 6 символов" />
+            <input type="password" name="password" value={form.password} onChange={handleChange} placeholder="Минимум 6 символов" required minLength="6" />
           </div>
 
           <div className="input-group">
@@ -71,15 +71,15 @@ export default function Register() {
 
           <div className="input-group">
             <label>Телефон</label>
-            <input name="phone" value={form.phone} onChange={handleChange} required placeholder="+996 999 123 456" />
+            <input name="phone" value={form.phone} onChange={handleChange} placeholder="+996 999 123 456" required />
           </div>
 
           <div className="input-group">
             <label>Возраст</label>
-            <input type="number" name="age" value={form.age} onChange={handleChange} required min="13" placeholder="18" />
+            <input type="number" name="age" value={form.age} onChange={handleChange} placeholder="18" required min="13" />
           </div>
 
-          <button type="submit" className="auth-btn primary">
+          <button type="submit" className="auth-btn">
             Зарегистрироваться
           </button>
         </form>
